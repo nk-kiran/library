@@ -18,17 +18,4 @@ public class LibraryTest {
         Book expectedBook = library.getBook(2);
         Assert.assertEquals(expectedBook, secondBook);
     }
-
-    @Test
-    public void addReviewToABook() {
-        Book firstBook = new Book("Book1","Author1");
-        firstBook.addReview("good");
-    }
-
-    @Test
-    public void getReviewsToABook() {
-        Book firstBook = new Book("Book1","Author1");
-        Book reviewedBook = firstBook.getReviews();
-        Assert.assertTrue(reviewedBook.reviews.contains("Good"));
-    }
 }
