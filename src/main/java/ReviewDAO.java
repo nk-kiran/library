@@ -6,6 +6,11 @@ import java.util.List;
 
 public interface ReviewDAO {
 
+    @SqlUpdate(("CREATE TABLE IF NOT EXISTS REVIEW(" +
+            "ID INT     NOT NULL, "+
+            "REVIEWS   VARCHAR(50)    NOT NULL)"))
+    void createTableReview();
+
     @SqlUpdate("INSERT INTO REVIEW(ID, REVIEWS) values( :id , :review)")
     void addReview(@Bind("id") Integer id, @Bind("review") String review);
 

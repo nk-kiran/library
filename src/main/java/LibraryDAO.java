@@ -12,11 +12,6 @@ public interface LibraryDAO {
             "AUTHOR       VARCHAR(50)     NOT NULL) "))
     void createTableBook();
 
-    @SqlUpdate(("CREATE TABLE IF NOT EXISTS REVIEW(" +
-            "ID INT     NOT NULL, "+
-            "REVIEWS   VARCHAR(50)    NOT NULL)"))
-    void createTableReview();
-
     @SqlUpdate("INSERT INTO BOOK(ID, TITLE, AUTHOR) values(:id, :title, :author)")
     void addBook(@Bind("id") Integer id, @Bind("title") String title ,@Bind("author") String author);
 
@@ -29,5 +24,4 @@ public interface LibraryDAO {
     @SqlQuery("SELECT * FROM BOOK WHERE ID = :id")
     @Mapper(BookMapper.class)
     Book getBook(@Bind("id") Integer id);
-
 }
